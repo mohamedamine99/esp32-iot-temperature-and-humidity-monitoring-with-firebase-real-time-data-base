@@ -89,3 +89,6 @@ To acquire your API key, go to the project settings page by clicking the setting
 ![image](https://user-images.githubusercontent.com/86969450/128211611-800f7843-0806-43fc-ad20-35e5d12ea8ab.png)
 
 **Now we're all ready to start working on our embedded application !**
+
+## Software implementation:
+
