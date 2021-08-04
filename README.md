@@ -335,3 +335,70 @@ Serial.printf("Firebase Client v%s\n\n", FIREBASE_CLIENT_VERSION);
     hum_path=path+"/humidity";
 }
 ```
+The next function is `Json_init()` which initializes our json objects keys and values and assigns them to thier respectives paths
+```
+void Json_init()
+{
+Tempreature_json.add("Device ID",DEVICE_ID);
+Tempreature_json.add("Value",temperature);
+Tempreature_json.add("Warning","NONE");
+Tempreature_json.add("Sensor State","OK");
+
+Humidity_json.add("Device ID",DEVICE_ID);
+Humidity_json.add("Value",humidity);
+Humidity_json.add("Warning","NONE");
+Humidity_json.add("Sensor State","OK");
+}
+
+```
+and finally we initialize our sensor. Sometimes the DHT11 sensors fails to read values correctly and as a result it returns -999.0 so in order to avoid such inconveniences the functions we tend to use the `setSuppressError(true)` function: its main role is to replace the -999.0 error value by the latest value read by the sensor.
+  
+**For more detailed informations you can check the sensor library link provided [here](https://github.com/RobTillaart/DHTNEW) you can find an implementation example [here](https://github.com/RobTillaart/DHTNew/blob/master/examples/dhtnew_suppressError/dhtnew_suppressError.ino)**
+
+```
+void Sensor_init()
+{
+    Sensor.setSuppressError(true);// avoiding spikes and error values for more detailed info check this  
+
+}
+
+```
+
+Now that we have completed the setup functions, lets get to the loop function.  
+As we can see we we use the `if` statement to check whether we are well connected and signed up and to keep our functions running at a constant rate, in our case very 2 seconds.  
+We used `Update_Sensor_readings()` function in order to read sensor values and  `Update_data()` in order to upload them to our Firebase realtime database.
+
+```
+void loop()
+{
+    if (millis() - dataMillis > 2000 && signupOK && Firebase.ready())
+    {
+        dataMillis = millis();
+        Update_Sensor_readings();
+        Update_data(); 
+    }
+
+}
+```
+Now let's dive in our `Update_Sensor_readings()` function.  
+this functions updates error_code and sensor values that will later be uploaded to our database.
+
+```
+void Update_Sensor_readings()
+{
+ // if (millis() - Sensor.lastRead() > 2000){
+Sensor_Error_Code = Sensor.read();
+humidity=Sensor.getHumidity();
+temperature= Sensor.getTemperature();
+Serial.println("/*****/");
+Serial.println(Sensor_Error_Code);
+Serial.println("/*****/");
+Serial.println("temperature : ");
+Serial.print(temperature);
+Serial.println("/*****/");
+Serial.println("humidity : ");
+Serial.print(humidity);
+Serial.println("/*****/");
+  }  
+}
+```
