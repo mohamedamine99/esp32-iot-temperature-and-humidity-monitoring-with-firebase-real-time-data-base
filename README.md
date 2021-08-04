@@ -262,6 +262,7 @@ We make use of the built in WiFi API provided by the Arduino framework.
 We use the `WiFi.begin(WIFI_SSID, WIFI_PASSWORD)`  function to initialise a WiFi connection using our credentials `WIFI_SSID` and `WIFI_PASSWORD`.  
 After that check every 300 ms to see if the connection has been successfully established using the `WiFi.status()` function in this case we pirnt the local IP adress using
 `WiFi.localIP()`.
+For more detailed informations about WiFi API you might want to check out the [Arduino WiFi API documentation](https://www.arduino.cc/en/Reference/WiFi).
 
 ```
 void WiFi_init()
