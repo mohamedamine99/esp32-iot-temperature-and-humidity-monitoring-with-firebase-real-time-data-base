@@ -291,7 +291,7 @@ Next, we'll create a Firebase initialization function that connects to the Fireb
 We start by passing our API key and database URL to the configuration object, along with enabling WiFi reconnection on upon setup.  
 We then attempt to sign up anonymously as a new user using the function `Firebase.signUp(&config, &auth, "", "")`.  
 In order to accomplish anonymous authentification we pass to the function empty mail and password.
-After signing up sucessfully we initialze our Firebase library using `Firebase.begin(&config, &auth)`.
+After signing up sucessfully we initialze our Firebase library using `Firebase.begin(&config, &auth)`.  
 Now we need to determine the **paths** to where to upload our data :
 * the base path `path` includes the user ID generated after a successfull sign up ,we use this instruction ` auth.token.uid.c_str()` in order to get the UID.
 * temperature path which contains the json objects that holds sensor tempertaure data `temp_path` .
