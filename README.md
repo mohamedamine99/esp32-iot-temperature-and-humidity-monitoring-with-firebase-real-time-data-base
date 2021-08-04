@@ -163,6 +163,59 @@ Now we define our 2 rgb LEDs pins
 Each RGB LED has 4 pins : one for gnd and 3 pins as input to determine the output color
 
  ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
+   
+ Next we initialise 3 objects courtesy of the `FirebaseESP32` library which will be critical to linking our application to Firebase.
 
- 
- 
+ ```
+ /* 4. Define the Firebase Data object */
+FirebaseData fbdo;
+
+/* 5. Define the FirebaseAuth data for authentication data */
+FirebaseAuth auth;
+
+/* 6. Define the FirebaseConfig data for config data */
+FirebaseConfig config;
+ ``` 
+Following that, we define a few global variables that will be useful.
+
+ ``` 
+// Sensor data
+float humidity=0.0;
+float temperature=0.0;
+
+unsigned long dataMillis = 0;
+
+bool signupOK = false;
+
+// thresholds for temperature & humidity 
+//these values represent indoor human confort range
+float hum_min_threshhold=30.0;
+float hum_max_threshhold=60.0;
+
+float temp_min_threshhold=20.0;
+float temp_max_threshhold=30.0;
+
+//notifications concerning sensor values
+String SensorState = "OK";
+String Warning = "NONE";
+int Sensor_Error_Code=0;
+ ```
+ We also need to create two Firebase Json objects that will hold our sensor data .
+ ```
+// Json objects containing data
+FirebaseJson Tempreature_json;
+
+FirebaseJson Humidity_json;
+ ```
+ We also need to declare string variables indicating the paths to our json objects containg the sensor data.
+ ```
+ // declaring string variables containing the data paths
+String path="";//base path 
+String temp_path="";
+String hum_path="";
+```
+  Finally let's not forget to create a DHT11 sensor object and attach it to an analog pin (15 in our case).
+ ```
+//creating sensor object attached to pin 15
+DHTNEW Sensor(15);
+```
