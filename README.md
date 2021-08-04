@@ -219,3 +219,70 @@ String hum_path="";
 //creating sensor object attached to pin 15
 DHTNEW Sensor(15);
 ```
+Now let's take a look at our setup function :
+```
+void setup()
+{ 
+  //Starting serial communication with our ESP32 board
+    Serial.begin(115200);
+    
+    //initializations 
+    Led_Init();
+    Sensor_init();
+    WiFi_init();
+    FireBase_init();
+    Json_init();
+    
+    Serial.println(path);
+    Serial.println(temp_path);
+    Serial.println(hum_path);
+    
+    Serial.println(String(millis()));
+}
+```
+As you can see First we need to initailize and establish serial communication with our ESP32 board using `Serial.begin(115200)`.  
+note that we have used multiple functions In order to initialize our hardware.    
+the first function is `Led_init()` which initializes our RGB LEDs as outputs and attaches them to their respective pins.
+```
+void Led_Init()
+{
+  
+pinMode(Led_1_Red,OUTPUT);
+pinMode(Led_1_Green,OUTPUT);
+pinMode(Led_1_Blue,OUTPUT);
+
+pinMode(Led_2_Red,OUTPUT);
+pinMode(Led_2_Green,OUTPUT);
+pinMode(Led_2_Blue,OUTPUT);
+    
+}
+```
+The next step is to setup a connection between our board and the wifi network.In order to do that we daclare a function named `WiFi_init()`.  
+We make use of the built in WiFi API provided by the Arduino framework.  
+We use the `WiFi.begin(WIFI_SSID, WIFI_PASSWORD)`  function to initialise a WiFi connection using our credentials `WIFI_SSID` and `WIFI_PASSWORD`.
+after that check every 300 ms to see if the connection has been successfully established using the `WiFi.status()` function.
+
+```
+void WiFi_init()
+{
+
+  //attempting to connect with the wifi network
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD); 
+    Serial.print("Connecting to Wi-Fi");
+
+    //while not connected 
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        Serial.print(".");
+        delay(300);
+    }
+    Serial.println();
+    
+    //Print the local IP adress if connection is successfully established
+    Serial.print("Connected with IP: ");
+    Serial.println(WiFi.localIP());
+    Serial.println();
+   
+}
+```
+
