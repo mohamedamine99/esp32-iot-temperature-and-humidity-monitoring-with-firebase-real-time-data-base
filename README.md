@@ -42,5 +42,13 @@ You can **disable the Enable Google Analytics** for this project option since it
  Firebase will begin setting up your project. Once completed select **Continue**, and you will be taken to your projects overview page on the Firebase console.
 
 ![image](https://user-images.githubusercontent.com/86969450/128201585-a1c022bd-b68b-4d10-9796-814dce610e97.png)
+    
+
+First we need to setup authentification methods for the project.    
+Select the **Authentication** menu option on the top left, and you will be taken to the authentication page. Select the **Get Started** button.
+    
+![image](https://user-images.githubusercontent.com/86969450/128202578-e31509fa-6bb9-42ac-bc99-0010971a75d9.png)
+    
+ ![image](https://user-images.githubusercontent.com/86969450/128202995-bea71292-332a-4df8-8d5b-b0648c30414a.png)
 
 
