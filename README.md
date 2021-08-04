@@ -135,7 +135,34 @@ Next, we'll create a constant to store our API key; as previously said, you can 
 
  ```
 #define API_KEY "API_KEY"
+
 /* 3. If work with RTDB, define the RTDB URL */
+
 #define DATABASE_URL "URL" //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
  ```
+ We need to define a unique device ID which can used to differentiate data coming from multiple sensors.
+ the same should be applied for the Locations
+  ```
+#define DEVICE_ID "dev-1"
 
+#define LOCATION "Living Room"
+ ```
+Now we define our 2 rgb LEDs pins
+    
+ ```
+ // Led 1 Pins
+#define Led_1_Red 25
+#define Led_1_Green 26
+#define Led_1_Blue 27
+
+// Led 2 Pins
+#define Led_2_Red 2
+#define Led_2_Green 4
+#define Led_2_Blue 5
+ ```
+Each RGB LED has 4 pins : one for gnd and 3 pins as input to determine the output color
+
+ ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
+
+ 
+ 
