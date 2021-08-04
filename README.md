@@ -261,7 +261,7 @@ The next step is to setup a connection between our board and the wifi network.In
 We make use of the built in WiFi API provided by the Arduino framework.  
 We use the `WiFi.begin(WIFI_SSID, WIFI_PASSWORD)`  function to initialise a WiFi connection using our credentials `WIFI_SSID` and `WIFI_PASSWORD`.  
 After that check every 300 ms to see if the connection has been successfully established using the `WiFi.status()` function in this case we pirnt the local IP adress using
-`WiFi.localIP()`.
+`WiFi.localIP()`.  
 For more detailed informations about WiFi API you might want to check out the [Arduino WiFi API documentation](https://www.arduino.cc/en/Reference/WiFi).
 
 ```
@@ -287,4 +287,49 @@ void WiFi_init()
    
 }
 ```
+Next, we'll create a Firebase initialization function that connects to the Firebase backend, authenticates our device, and sets up our Firebase library.  
+We start by passing our API key and database URL to the configuration object, along with enabling WiFi reconnection on upon setup.  
+We then attempt to sign up anonymously as a new user using the function `Firebase.signUp(&config, &auth, "", "")`.  
+In order to accomplish anonymous authentification we pass to the function empty mail and password.
+After signing up sucessfully we initialze our Firebase library using `Firebase.begin(&config, &auth)`.
+Now we need to determine the **paths** to where to upload our data :
+* the base path `path` includes the user ID generated after a successfull sign up ,we use this instruction ` auth.token.uid.c_str()` in order to get the UID.
+* temperature path which contains the json objects that holds sensor tempertaure data `temp_path` .
+* humidity path which contains the json objects that holds sensor humidity data `hum_path` .
 
+```
+void FireBase_init(){
+Serial.printf("Firebase Client v%s\n\n", FIREBASE_CLIENT_VERSION);
+
+    /* Assign the API key (required) */
+    config.api_key = API_KEY;
+
+    /* Assign the RTDB URL */
+    config.database_url = DATABASE_URL;
+
+    Firebase.reconnectWiFi(true);
+    Serial.print("Sign up new user... ");
+
+    /* Sign up */
+    if (Firebase.signUp(&config, &auth, "", ""))
+    {
+        Serial.println("ok");
+        signupOK = true;
+
+    }
+    else
+        Serial.printf("%s\n", config.signer.signupError.message.c_str());
+
+    /* Assign the callback function for the long running token generation task */
+    config.token_status_callback = tokenStatusCallback; //see addons/TokenHelper.h
+    Firebase.begin(&config, &auth);
+    path = auth.token.uid.c_str(); //<- user uid
+    path+="/";
+
+    // determining the paths
+    
+    path+=LOCATION;
+    temp_path=path+"/temperature";
+    hum_path=path+"/humidity";
+}
+```
