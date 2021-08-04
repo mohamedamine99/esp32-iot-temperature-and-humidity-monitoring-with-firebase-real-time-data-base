@@ -380,7 +380,7 @@ void loop()
 
 }
 ```
-Now let's dive in our `Update_Sensor_readings()` function.  
+Now let's dive into our `Update_Sensor_readings()` function.  
 this functions updates error_code and sensor values that will later be uploaded to our database.
 
 ```
@@ -402,3 +402,117 @@ Serial.println("/*****/");
   }  
 }
 ```
+Now let's explore the `Update_data()` function that will update our data on the Firebase realtime database.
+we begin by setting the json values of temperature and humidity acquired by our sensor, then we compare them with the threshhold , set warning strings and signal diodes accordingly using the `if` statements.  
+
+the system has 2 rgb leds : one for temperature and one for humidity
+ *  determining Led signaling outputs dependq on values read by the sensor and the thresholds
+ *  Blue led 1 indicates high levels of humidity 
+ *  Red led 1 indicates low levels of humidity 
+ *  green led 1 indicates that the level of humidity is within human indoor confort range
+ *  Blue led 2 indicates low levels of temperature 
+ *  Red led 2 indicates high levels of temperature 
+ *  green led 2 indicates that the level of temperature is within human indoor confort range
+
+We then set the sensor state value using the `switch`, `case` statement.
+Finally we upload our data to the database using `Firebase.updateNode()` .
+```
+void Update_data()
+{
+
+  // setting the values of temperature and humidity
+Tempreature_json.set("Value",temperature);
+Humidity_json.set("Value",humidity);
+
+
+/* the system has 2 rgb leds : one for temperature and one for humidity
+ *  determining Led signaling outputs dependq on values read by the sensor and the thresholds
+ *  Blue led 1 indicates high levels of humidity 
+ *  Red led 1 indicates low levels of humidity 
+ *  green led 1 indicates that the level of humidity is within human indoor confort range
+ */
+
+if (humidity>hum_max_threshhold)
+{
+  Humidity_json.set("Warning","HUMIDITY ABOVE 60 !!" );
+  Led_Signal("Led 1",0,0,255);  
+  }
+else if (humidity<hum_min_threshhold){
+  Humidity_json.set("Warning","HUMIDITY BELOW 30 !!"  );
+  Led_Signal("Led 1",255,0,0);
+  }
+else {
+  Humidity_json.set("Warning","NONE");
+  Led_Signal("Led 1",0,255,0);
+  }
+
+
+/*
+ *  Blue led 2 indicates low levels of temperature 
+ *  Red led 2 indicates high levels of temperature 
+ *  green led 1 indicates that the level of temperature is within human indoor confort range
+ */
+        
+if (temperature>temp_max_threshhold)
+{
+  Tempreature_json.set("Warning","TEMPERATURE ABOVE 30 !!");
+  Led_Signal("Led 2",255,0,0);
+  }
+else if (temperature<temp_min_threshhold)
+{
+  Tempreature_json.set("Warning","TEMPERATURE BELOW 20 !!");
+  Led_Signal("Led 2",0,0,255);
+  }
+else {
+  Tempreature_json.set("Warning","NONE");
+  Led_Signal("Led 2",0,255,0);
+  }
+
+ switch (Sensor_Error_Code)
+  {
+    case DHTLIB_OK:
+      SensorState="OK";
+      break;
+    case DHTLIB_ERROR_CHECKSUM:
+      SensorState="Checksum error";
+      break;
+    case DHTLIB_ERROR_TIMEOUT_A:
+      SensorState="Time out A error";
+      break;
+    case DHTLIB_ERROR_TIMEOUT_B:
+      SensorState="Time out B error";
+      break;
+    case DHTLIB_ERROR_TIMEOUT_C:
+      SensorState="Time out C error";
+      break;
+    case DHTLIB_ERROR_TIMEOUT_D:
+      SensorState="Time out D error";
+      break;
+    case DHTLIB_ERROR_SENSOR_NOT_READY:
+      SensorState="Sensor not Ready : check sensor connections ";
+      break;
+    case DHTLIB_ERROR_BIT_SHIFT:
+      SensorState="Bit shift error";
+      break;
+    case DHTLIB_WAITING_FOR_READ:
+      SensorState="Waiting for read";
+      break;
+    default:
+      SensorState="Unknown ";
+      break;
+  }
+
+
+  Tempreature_json.set("Sensor State",SensorState);
+  Humidity_json.set("Sensor State",SensorState);
+
+
+Serial.println("updating");
+
+Firebase.updateNode(fbdo, temp_path , Tempreature_json);
+Firebase.updateNode(fbdo, hum_path , Humidity_json);
+}
+```
+
+
+
