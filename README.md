@@ -91,5 +91,51 @@ To acquire your API key, go to the project settings page by clicking the setting
 **Now we're all ready to start working on our embedded application !**
 
 ## Software implementation:
+**NB:   
+1- you can test your sensor individually via the sensor library link provided [here](https://github.com/RobTillaart/DHTNEW) you can find an implementation example [here](https://github.com/RobTillaart/DHTNew/blob/master/examples/dhtnew_suppressError/dhtnew_suppressError.ino)**\
+**2-you can test your Firebase individually via the library link provided [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)**  
 
+
+* Now let's begin with an anonymous authentification code where we upload the data read from the sensor to our database  :
+note that this example will create a new anonymous user with  different UID (user ID) every time you run this example.
+
+ First things first , we should begin by including all the libraries we're intending to use :
+ 
+   ```
+#include <dhtnew.h> // humidity and temperature sensor library
+
+/* the below if defined and endif bloc will detect the current esp board (32 or 8266) and include the adequate libraries 
+if it detects esp32 the it will includeesp32 librairies else it will include esp8266 libraries*/
+
+#if defined(ESP32)
+#include <WiFi.h> //wifi library 
+#include <FirebaseESP32.h> //firebase for ESP32 library
+#elif defined(ESP8266)
+#include <ESP8266WiFi.h>
+#include <FirebaseESP8266.h>
+#endif
+
+//Provide the token generation process info this will mostly help us debug the progress and the state of token generation 
+#include "addons/TokenHelper.h"
+//Provide the RTDB payload printing info and other helper functions. 
+#include "addons/RTDBHelper.h"
+
+  ```
+ Now we need to capture our WiFi credentials. Replace `WIFI_ID` with your WiFi Identifier, and `WIFI_PASSWORD` with your WiFi Password.
+    
+**Note: It’s never a good idea to hardcode password information in your embedded application, for production cases you need to apply a device provision strategy that includes a secure device registration process.**
+
+ ```
+ /* 1. Define the WiFi credentials */
+#define WIFI_SSID "WIFI_ID"
+#define WIFI_PASSWORD "WIFI_PASSWORD"
+ ```
+Next, we'll create a constant to store our API key; as previously said, you can retrieve your Firebase project API key from the projects settings page.     
+`API_KEY` should be replaced with your API key. Replace `URL` with your own Firebase Realtime Database URL.
+
+ ```
+#define API_KEY "API_KEY"
+/* 3. If work with RTDB, define the RTDB URL */
+#define DATABASE_URL "URL" //<databaseName>.firebaseio.com or <databaseName>.<region>.firebasedatabase.app
+ ```
 
