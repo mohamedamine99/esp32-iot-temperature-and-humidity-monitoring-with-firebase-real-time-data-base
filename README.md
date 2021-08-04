@@ -296,7 +296,8 @@ Now we need to determine the **paths** to where to upload our data :
 * the base path `path` includes the user ID generated after a successfull sign up ,we use this instruction ` auth.token.uid.c_str()` in order to get the UID.
 * temperature path which contains the json objects that holds sensor tempertaure data `temp_path` .
 * humidity path which contains the json objects that holds sensor humidity data `hum_path` .  
-For more details you can check the Library link and documentation [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)  
+
+**For more details you can check the Library link and documentation [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)**  
 
 ```
 void FireBase_init(){
