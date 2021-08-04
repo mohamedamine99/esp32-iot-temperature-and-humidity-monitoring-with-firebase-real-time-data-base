@@ -259,8 +259,9 @@ pinMode(Led_2_Blue,OUTPUT);
 ```
 The next step is to setup a connection between our board and the wifi network.In order to do that we daclare a function named `WiFi_init()`.  
 We make use of the built in WiFi API provided by the Arduino framework.  
-We use the `WiFi.begin(WIFI_SSID, WIFI_PASSWORD)`  function to initialise a WiFi connection using our credentials `WIFI_SSID` and `WIFI_PASSWORD`.
-after that check every 300 ms to see if the connection has been successfully established using the `WiFi.status()` function.
+We use the `WiFi.begin(WIFI_SSID, WIFI_PASSWORD)`  function to initialise a WiFi connection using our credentials `WIFI_SSID` and `WIFI_PASSWORD`.  
+After that check every 300 ms to see if the connection has been successfully established using the `WiFi.status()` function in this case we pirnt the local IP adress using
+`WiFi.localIP()`.
 
 ```
 void WiFi_init()
