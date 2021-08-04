@@ -50,5 +50,14 @@ Select the **Authentication** menu option on the top left, and you will be taken
 ![image](https://user-images.githubusercontent.com/86969450/128202578-e31509fa-6bb9-42ac-bc99-0010971a75d9.png)
     
  ![image](https://user-images.githubusercontent.com/86969450/128202995-bea71292-332a-4df8-8d5b-b0648c30414a.png)
+    
+ **Enable** both **Anonymous** Sign In and **Email/Password** as shown above and select the **Save** option.
+ In fact , we’re going to start by using the Anonymous sign in for our ESP32 devices, and later on in the tutorial we will devise a more advanced sign in method via   Email/Password .
+ 
+ The next step is to establish a database to store all of our sensor data. To do so, go to the **Realtime Database** menu option on the top left.   
+ this will take you to the Realtime Database page. Select the **Create Database** button to initialise the database creation menu.
+ ![image](https://user-images.githubusercontent.com/86969450/128204621-3323434c-87a2-4499-b1d7-9040a2938e94.png)
+
+ 
 
 
