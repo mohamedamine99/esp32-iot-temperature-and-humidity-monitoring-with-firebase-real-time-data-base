@@ -3,14 +3,13 @@
 
 
 
-
 ## Table of contents
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a>  
+    <li><a href="#about-the-project">About The Project</a></li>  
     <li><a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#hardware-requirements">Hardware Requirements</a></li>
@@ -18,7 +17,15 @@
         <li><a href="#backend-setup">Backend Setup</a></li>
       </ul>
     </li>
-   
+    <li><a href="#understanding-the-hardware">Understanding the hardware</a>
+      <ul>
+        <li><a href="#the-dht11-humidity-and-temperature-sensor">the DHT11 humidity and temperature sensor</a></li>
+        <li><a href="#the-rgb-leds">the RGB LEDs</a></li>
+      </ul>
+ </li> 
+    <li><a href="#software-implementation">Software implementation</a></li>
+    <li><a href="#executing-the-program">Executing the program</a></li>
+    
   </ol>
 </details>
 
@@ -594,7 +601,7 @@ Firebase.updateNode(fbdo, hum_path , Humidity_json);
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-### Executing program
+### Executing the program:
 
 ![image](https://user-images.githubusercontent.com/86969450/128270751-faebf612-2e97-496e-97e4-26935ed65734.png)
   
