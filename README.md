@@ -144,7 +144,7 @@ The DHT sensors are made of two parts, a capacitive humidity sensor and a thermi
   
 ### the RGB LEDs:
 
- ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
+ ![image](https://user-images.githubusercontent.com/86969450/128378423-cd65d819-6719-4e48-806f-38448030afcf.png)  
 An RGB LED is basically an LED package that can produce almost any color. It can be used in different applications such as outdoor decoration lighting, stage lighting designs, home decoration lighting, LED matrix display, and more.
 
 RGB LEDs are made up of three internal LEDs (Red, Green, and Blue) that may be combined to produce nearly any color. To produce different colors, we must adjust the brightness of each internal LED and combine the three color outputs.
