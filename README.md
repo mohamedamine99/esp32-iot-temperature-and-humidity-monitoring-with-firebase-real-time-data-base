@@ -13,9 +13,9 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 ## Table of contents
 ------------------------------------------------------------------------
 
-## Getting Started
+## 1- Getting Started
 
-### Hardware Requirements:
+### 1.1 Hardware Requirements:
 * ESP32 development board (any ESP32 board is okay, for this project we will be using the ESP32 DevKit v1).
 * DHT11 temperature and humidity sensor or sensor module .
 * x2 RGB LEDs
@@ -24,7 +24,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 * Breadboard
 * Wires
 
-### Software Requirements:
+### 1.2 Software Requirements:
 * Arduino IDE (If you haven't already installed or configured it using esp32, check this awesome [tutorial](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) by Rui Santos)
 * DHT11 sensor library : DHTNEW for arduino by RobTillaart , you can find it [here](https://github.com/RobTillaart/DHTNEW)
 * Wifi library (should be installed by default)
@@ -32,7 +32,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 
 
 
-### Backend Setup:
+### 1.3 Backend Setup:
 * In order to use Google's Firebase you need a Google account.
 * to get started head over to Firebase, and sign in using your Google account. 
     
@@ -92,7 +92,7 @@ To acquire your API key, go to the project settings page by clicking the setting
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## the Hardware:
+## 2- the Hardware:
 ### Understanding the hardware :
 Before building our circuit we need to understand the hardware we're using :
 ### the DHT11 humidity and temperature sensor :
@@ -128,7 +128,7 @@ We'll use PWM to adjust the intensity of the red, green, and blue LEDs individua
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Software implementation:
+## 3- Software implementation:
 **NB:   
 1- you can test your sensor individually via the sensor library link provided [here](https://github.com/RobTillaart/DHTNEW) you can find an implementation example [here](https://github.com/RobTillaart/DHTNew/blob/master/examples/dhtnew_suppressError/dhtnew_suppressError.ino)**\
 **2-you can test your Firebase individually via the library link provided [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)**  
@@ -574,7 +574,7 @@ Firebase.updateNode(fbdo, hum_path , Humidity_json);
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-### Executing program
+### 4- Executing program
 
 ![image](https://user-images.githubusercontent.com/86969450/128270751-faebf612-2e97-496e-97e4-26935ed65734.png)
   
