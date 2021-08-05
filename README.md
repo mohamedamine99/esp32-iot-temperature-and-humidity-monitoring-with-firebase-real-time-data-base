@@ -603,6 +603,9 @@ you can find the full code for **anonymous authentification [here](https://githu
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ### Executing the program:
 Now is the moment to execute the program and observe the results:
+* So as you can see we have sign up anonymous users each having his own token.  
+* We can also see that the data are successfully uploaded on our RTDB and are continuously updating in real-time indicating that our values are well monitored.  
+
 
 ![image](https://user-images.githubusercontent.com/86969450/128270751-faebf612-2e97-496e-97e4-26935ed65734.png)
   
@@ -610,13 +613,11 @@ Now is the moment to execute the program and observe the results:
   
 ![image](https://user-images.githubusercontent.com/86969450/128270796-33b1d534-90a0-4a03-b039-fd7f2855bb86.png)  
 
-So as you can see we have sign up anonymous users each having his own token.  
-We can also see that the data are successfully uploaded on our RTDB and are continuously updating in real-time indicating that our values are well monitored.  
 Now let's check our board and our LEDs.
-  
+The LEDs are working and appropriately reflecting the temperature and humidity levels.  
+ 
 ![image](https://user-images.githubusercontent.com/86969450/128270911-228a45fa-8b23-4afe-9a9e-a36505edee9d.png)  
 
-The LEDs are working and appropriately reflecting the temperature and humidity levels.
   
 
 
