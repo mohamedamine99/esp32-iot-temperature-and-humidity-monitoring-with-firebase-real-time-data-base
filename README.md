@@ -10,27 +10,15 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <a href="#getting-started">Getting Started</a>
+    <li><a href="#about-the-project">About The Project</a>  
+    <li><a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#hardware-requirements">Hardware Requirements</a></li>
         <li><a href="#software-requirements">Software Requirements</a></li>
         <li><a href="#backend-setup">Backend Setup</a></li>
       </ul>
     </li>
-    <li>
-    <a href="#understanding-the-hardware">Understanding the hardware</a>
-     <ul>
-        <li><a href="the-DHT11-humidity-and-temperature-sensor">the DHT11 humidity and temperature sensor</a></li>
-        <li><a href="the-RGB-LEDs">the RGB LEDs</a></li>
-     </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+   
   </ol>
 </details>
 
