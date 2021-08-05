@@ -32,7 +32,6 @@
   </ol>
 </details>
 
- <!-- 1- ABOUT THE PROJECT -->
    
 ## 1- About the project
 
