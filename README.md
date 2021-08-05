@@ -1,7 +1,7 @@
 # esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base
 
 
-
+Making an upgrade:
 
 ## Table of contents
 
@@ -25,6 +25,11 @@
  </li> 
     <li><a href="#software-implementation">Software implementation</a></li>
     <li><a href="#executing-the-program">Executing the program</a></li>
+    <li><a href="#making-an-upgrade">Making an upgrade</a></li>
+    <li><a href="#conclusion-and-perspective">Conclusion and perspective</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    
     
   </ol>
 </details>
@@ -618,7 +623,35 @@ Now let's check our board and our LEDs:
  
 ![image](https://user-images.githubusercontent.com/86969450/128270911-228a45fa-8b23-4afe-9a9e-a36505edee9d.png)  
 
+### Making an upgrade:
+
+to round up what we have already achieved, we have successfully established a connection between our RTBD and our device but we have only allowed for anonymous sign ups.
+In fact the problem with anonymous sign up is that each time we rerun the program a new anonymous user is created even if it's the same actual user who's uploading the data.
+this should pose a problem if we ought to keep track of what's going on inside our database, hence, we need for a more advanced method of authentification to overcome this issue.
+the simplest solution is to use authentification method with user mail and password , which is not very different than its anonymous counterpart in its code stucture or complexity.  
+**you can check the user mail and password authentification code [here](https://github.com/mohamedamine99/esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base/blob/main/src/dht11__fireBase_Email_Password_authentification.ino)**
+
+Now we should see the difference : 
+* no matter haw many times we run our program the data is always uploaded to the unique user path for each user.
+
+![image](https://user-images.githubusercontent.com/86969450/128424276-27505bc2-8fe9-4d0a-81b1-b42b974128e5.png)
   
+![image](https://user-images.githubusercontent.com/86969450/128424299-cbd6ce50-1b9a-441c-a0ce-0071405dfc97.png)
+
+ 
+### Conclusion and perspective:
+
+To sum up, in this tutorial we learned how to interface sensors and actuators with our ESP32 DEV kit V-1 , we learned how to avoid incorrect readings from the DHT11 sensor,how to properly control RGB LEDs colors and how to upload sensor values and update them continuously on our Firebase RealTime Database (RTBD) using anonymous sign up at first and then using a more advanced authentification method with user mail and password.
+
+### Contact:
+* Mail : mohamedamine.benabdeljelil@insat.u-carthage.tn -- mohamedaminebenjalil@yahoo.fr
+* Linked-in profile: https://www.linkedin.com/in/mohamed-amine-ben-abdeljelil-86a41a1a9/
+
+### Acknowledgements:
+* [mobizt](https://github.com/mobizt) for making the [ESP32 Firebase library](https://github.com/mobizt/Firebase-ESP-Client)
+* [Rob Tillaart](https://github.com/RobTillaart) for making the [DHT11-22 library](https://github.com/RobTillaart/DHTNEW)
+* [othneildrew](https://github.com/othneildrew) for making the [readme templates](https://github.com/othneildrew/Best-README-Template)
+
 
 
 
