@@ -1,6 +1,20 @@
 # esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base
 
-<!-- ABOUT THE PROJECT -->
+
+
+
+
+## Table of contents
+
+- [About the project](#about-the-project)
+
+- [Heading](#heading-1)
+  * [Sub-heading](#sub-heading-1)
+    + [Sub-sub-heading](#sub-sub-heading-1)
+- [Heading](#heading-2)
+  * [Sub-heading](#sub-heading-2)
+    + [Sub-sub-heading](#sub-sub-heading-2)
+    
 ## 1- About the project
 
 ESP32 is a powerful hardware platform for IoT applications and is widely used for prototyping and development of IoT applications.
@@ -8,42 +22,6 @@ ESP32 is a powerful hardware platform for IoT applications and is widely used fo
 This prject will demonstrate the fastest method to connect your ESP32 to Google’s Firebase backend. Firebase has become a very convenient option for developers to rapidly prototype their ideas, in this tutorial we lay the ground work for the development of a realtime temperature and humidity monitoring solution. 
 
 This tutorial further demostrates how to interface the DHT11 temperature and humidity sensor with the ESP32 using Arduino IDE and how to upload sensor data on google Firebase's  realtime database . 
-
-
-
-## Table of contents
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#Hardware-Requirements">Hardware-Requirements</a></li>
-        <li><a href="#Software-Requirements">Software-Requirements</a></li>
-         <li><a href="#Backend-Setup">Backend-Setup</a></li>
-      </ul>
-    </li>
-    <li><a href="#Hardware-implementation">Hardware-implementation</a></li>
-         <ul>
-        <li><a href="#DHT11-Sensor">DHT11-Sensor</a></li>
-        <li><a href="#RGB-LEDs">RGB-LEDs</a></li>
-      </ul>
-    </li>
-    <li><a href="#Software-implementation">Software-implementation</a></li>
-    <li><a href="#Results">Results</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
 
 <!-- GETTING STARTED -->
 ## 2- Getting Started
