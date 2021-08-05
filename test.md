@@ -1,4 +1,4 @@
-- [about the project](#about the project)
+- [about the project](#about-the-project)
   * [Sub-heading](#sub-heading)
     + [Sub-sub-heading](#sub-sub-heading)
 - [Heading](#heading-1)
