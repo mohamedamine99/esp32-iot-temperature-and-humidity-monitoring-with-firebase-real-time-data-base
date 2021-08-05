@@ -1,7 +1,6 @@
 # esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base
 
 <!-- ABOUT THE PROJECT -->
-
 ## 1- About the project
 
 ESP32 is a powerful hardware platform for IoT applications and is widely used for prototyping and development of IoT applications.
