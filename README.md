@@ -116,13 +116,12 @@ To acquire your API key, go to the project settings page by clicking the setting
 
 **Now we're all ready to start working on our embedded application !**
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-## Understanding the hardware :
+## Understanding the hardware:
 Before building our circuit we need to understand the hardware we're using :
 
-### the DHT11 humidity and temperature sensor :
+### the DHT11 humidity and temperature sensor:
 ![image](https://user-images.githubusercontent.com/86969450/128260693-fb78d2f9-0f95-48f1-9bd8-9bf41570ac61.png)
 
 The DHT sensors are made of two parts, a capacitive humidity sensor and a thermistor. There is also a very basic chip inside that does some analog to digital conversion and spits out a digital signal with the temperature and humidity. The digital signal is fairly easy to read using any microcontroller.
@@ -143,7 +142,7 @@ The DHT sensors are made of two parts, a capacitive humidity sensor and a thermi
 * Resolution: Temperature and Humidity both are 16-bit
 * Accuracy: ±1°C and ±1%
   
-### the RGB LEDs :
+### the RGB LEDs:
 
  ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
 An RGB LED is basically an LED package that can produce almost any color. It can be used in different applications such as outdoor decoration lighting, stage lighting designs, home decoration lighting, LED matrix display, and more.
@@ -153,7 +152,6 @@ We'll use PWM to adjust the intensity of the red, green, and blue LEDs individua
 
 **NB: the LEDs used in our project are common Cathode**
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Software implementation:
 **NB:   
