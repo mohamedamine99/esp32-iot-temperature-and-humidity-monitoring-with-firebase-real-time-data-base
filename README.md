@@ -1,6 +1,7 @@
 # esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base
-------------------------------------------------------------------------
 
+
+## 1- About the project
 
 ESP32 is a powerful hardware platform for IoT applications and is widely used for prototyping and development of IoT applications.
 
@@ -8,14 +9,46 @@ This prject will demonstrate the fastest method to connect your ESP32 to Google�
 
 This tutorial further demostrates how to interface the DHT11 temperature and humidity sensor with the ESP32 using Arduino IDE and how to upload sensor data on google Firebase's  realtime database . 
 
-------------------------------------------------------------------------
+
 
 ## Table of contents
-------------------------------------------------------------------------
 
-## 1- Getting Started
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#Hardware-Requirements">Hardware-Requirements</a></li>
+        <li><a href="#Software-Requirements">Software-Requirements</a></li>
+         <li><a href="#Backend-Setup">Backend-Setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#Hardware-implementation">Hardware-implementation</a></li>
+         <ul>
+        <li><a href="#DHT11-Sensor">DHT11-Sensor</a></li>
+        <li><a href="#RGB-LEDs">RGB-LEDs</a></li>
+      </ul>
+    </li>
+    <li><a href="#Software-implementation">Software-implementation</a></li>
+    <li><a href="#Results">Results</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-### 1.1 Hardware Requirements:
+
+
+## 2- Getting Started
+
+### 2.1 Hardware Requirements:
 * ESP32 development board (any ESP32 board is okay, for this project we will be using the ESP32 DevKit v1).
 * DHT11 temperature and humidity sensor or sensor module .
 * x2 RGB LEDs
@@ -24,7 +57,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 * Breadboard
 * Wires
 
-### 1.2 Software Requirements:
+### 2.2 Software Requirements:
 * Arduino IDE (If you haven't already installed or configured it using esp32, check this awesome [tutorial](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/) by Rui Santos)
 * DHT11 sensor library : DHTNEW for arduino by RobTillaart , you can find it [here](https://github.com/RobTillaart/DHTNEW)
 * Wifi library (should be installed by default)
@@ -32,7 +65,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 
 
 
-### 1.3 Backend Setup:
+### 2.3 Backend Setup:
 * In order to use Google's Firebase you need a Google account.
 * to get started head over to Firebase, and sign in using your Google account. 
     
@@ -92,10 +125,11 @@ To acquire your API key, go to the project settings page by clicking the setting
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 2- the Hardware:
+## 3- the Hardware:
 ### Understanding the hardware :
 Before building our circuit we need to understand the hardware we're using :
-### the DHT11 humidity and temperature sensor :
+
+### 3-1 the DHT11 humidity and temperature sensor :
 ![image](https://user-images.githubusercontent.com/86969450/128260693-fb78d2f9-0f95-48f1-9bd8-9bf41570ac61.png)
 
 The DHT sensors are made of two parts, a capacitive humidity sensor and a thermistor. There is also a very basic chip inside that does some analog to digital conversion and spits out a digital signal with the temperature and humidity. The digital signal is fairly easy to read using any microcontroller.
@@ -116,7 +150,7 @@ The DHT sensors are made of two parts, a capacitive humidity sensor and a thermi
 * Resolution: Temperature and Humidity both are 16-bit
 * Accuracy: ±1°C and ±1%
   
-### the RGB LEDs :
+### 3-2 the RGB LEDs :
 
  ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
 An RGB LED is basically an LED package that can produce almost any color. It can be used in different applications such as outdoor decoration lighting, stage lighting designs, home decoration lighting, LED matrix display, and more.
@@ -128,7 +162,7 @@ We'll use PWM to adjust the intensity of the red, green, and blue LEDs individua
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## 3- Software implementation:
+## 4- Software implementation:
 **NB:   
 1- you can test your sensor individually via the sensor library link provided [here](https://github.com/RobTillaart/DHTNEW) you can find an implementation example [here](https://github.com/RobTillaart/DHTNew/blob/master/examples/dhtnew_suppressError/dhtnew_suppressError.ino)**\
 **2-you can test your Firebase individually via the library link provided [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)**  
@@ -574,7 +608,7 @@ Firebase.updateNode(fbdo, hum_path , Humidity_json);
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-### 4- Executing program
+### 5- Executing program
 
 ![image](https://user-images.githubusercontent.com/86969450/128270751-faebf612-2e97-496e-97e4-26935ed65734.png)
   
