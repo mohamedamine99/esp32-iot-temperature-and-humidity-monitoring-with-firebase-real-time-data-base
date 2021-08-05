@@ -91,6 +91,41 @@ To acquire your API key, go to the project settings page by clicking the setting
 **Now we're all ready to start working on our embedded application !**
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## the Hardware:
+### Understanding the hardware :
+Before building our circuit we need to understand the hardware we're using :
+### the DHT11 humidity and temperature sensor :
+![image](https://user-images.githubusercontent.com/86969450/128260693-fb78d2f9-0f95-48f1-9bd8-9bf41570ac61.png)
+
+The DHT sensors are made of two parts, a capacitive humidity sensor and a thermistor. There is also a very basic chip inside that does some analog to digital conversion and spits out a digital signal with the temperature and humidity. The digital signal is fairly easy to read using any microcontroller.
+
+#### DHT11 Pinout Identification and Configuration:
+ 
+![image](https://user-images.githubusercontent.com/86969450/128260826-39c05af8-e2ee-4c76-b41a-012059d6e8c5.png)
+
+**NB : In our case we'll be using the DHT11 sensor module**
+
+#### Technical details:
+
+* Operating Voltage: 3.5V to 5.5V
+* Operating current: 0.3mA (measuring) 60uA (standby)
+* Output: Serial data
+* Temperature Range: 0°C to 50°C
+* Humidity Range: 20% to 90%
+* Resolution: Temperature and Humidity both are 16-bit
+* Accuracy: ±1°C and ±1%
+  
+### the RGB LEDs :
+
+ ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
+An RGB LED is basically an LED package that can produce almost any color. It can be used in different applications such as outdoor decoration lighting, stage lighting designs, home decoration lighting, LED matrix display, and more.
+
+RGB LEDs are made up of three internal LEDs (Red, Green, and Blue) that may be combined to produce nearly any color. To produce different colors, we must adjust the brightness of each internal LED and combine the three color outputs.
+We'll use PWM to adjust the intensity of the red, green, and blue LEDs individually, and the key is that because the LEDs are all so close together inside, our eyes will see the mixture of colors rather than the individual ones.
+
+**NB: the LEDs used in our project are common Cathode**
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Software implementation:
@@ -539,34 +574,18 @@ Firebase.updateNode(fbdo, hum_path , Humidity_json);
 ```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-## Building the circuit:
-### Understanding the hardware :
-Before building our circuit we need to understand the hardware we're using :
-### the DHT11 humidity and temperature sensor :
-![image](https://user-images.githubusercontent.com/86969450/128260693-fb78d2f9-0f95-48f1-9bd8-9bf41570ac61.png)
+### Executing program
 
-The DHT sensors are made of two parts, a capacitive humidity sensor and a thermistor. There is also a very basic chip inside that does some analog to digital conversion and spits out a digital signal with the temperature and humidity. The digital signal is fairly easy to read using any microcontroller.
-
-#### DHT11 Pinout Identification and Configuration:
- 
-![image](https://user-images.githubusercontent.com/86969450/128260826-39c05af8-e2ee-4c76-b41a-012059d6e8c5.png)
-
-**NB : In our case we'll be using the DHT11 sensor module**
-
-#### Technical details:
-
-* Operating Voltage: 3.5V to 5.5V
-* Operating current: 0.3mA (measuring) 60uA (standby)
-* Output: Serial data
-* Temperature Range: 0°C to 50°C
-* Humidity Range: 20% to 90%
-* Resolution: Temperature and Humidity both are 16-bit
-* Accuracy: ±1°C and ±1%
+![image](https://user-images.githubusercontent.com/86969450/128270751-faebf612-2e97-496e-97e4-26935ed65734.png)
   
-### the RGB LEDs :
+![image](https://user-images.githubusercontent.com/86969450/128270765-7b770f5d-9586-4d57-836d-7cde2104b34d.png)
+  
+![image](https://user-images.githubusercontent.com/86969450/128270796-33b1d534-90a0-4a03-b039-fd7f2855bb86.png)
+  
+![image](https://user-images.githubusercontent.com/86969450/128270911-228a45fa-8b23-4afe-9a9e-a36505edee9d.png)
 
- ![image](https://user-images.githubusercontent.com/86969450/128232493-7d108dc6-889b-4f1e-8cc7-02b301025d9e.png)
-An RGB LED is basically an LED package that can produce almost any color. It can be used in different applications such as outdoor decoration lighting, stage lighting designs, home decoration lighting, LED matrix display, and more.
+  
 
-RGB LEDs have three internal LEDs (Red, Green, and Blue) that can be combined to produce almost any color output. In order to produce different kinds of colors, we need to set the intensity of each internal LED and combine the three color outputs.
+
+
 
