@@ -11,19 +11,21 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#1--about-the-project">1- About The Project</a>
+      <a href="#about-the-project">About The Project</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#hardware-requirements">Hardware Requirements</a></li>
+        <li><a href="#software-requirements">Software Requirements</a></li>
+        <li><a href="#backend-setup">Backend Setup</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+    <a href="#understanding-the-hardware">Understanding the hardware</a>
+     <ul>
+        <li><a href="the-DHT11-humidity-and-temperature-sensor">the DHT11 humidity and temperature sensor</a></li>
+        <li><a href="the-RGB-LEDs">the RGB LEDs</a></li>
+     </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -44,7 +46,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### 2.1 Hardware Requirements:
+### Hardware Requirements:
 * ESP32 development board (any ESP32 board is okay, for this project we will be using the ESP32 DevKit v1).
 * DHT11 temperature and humidity sensor or sensor module .
 * x2 RGB LEDs
@@ -121,8 +123,8 @@ To acquire your API key, go to the project settings page by clicking the setting
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## the Hardware:
-### Understanding the hardware :
+
+## Understanding the hardware :
 Before building our circuit we need to understand the hardware we're using :
 
 ### the DHT11 humidity and temperature sensor :
