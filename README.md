@@ -597,6 +597,8 @@ Firebase.updateNode(fbdo, temp_path , Tempreature_json);
 Firebase.updateNode(fbdo, hum_path , Humidity_json);
 }
 ```
+you can find the full code for **anonymous authentification [here](https://github.com/mohamedamine99/esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base/blob/main/src/dht11__fireBase_Anonymous_auth_.ino)**
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 ### Executing the program:
