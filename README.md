@@ -45,7 +45,7 @@ This tutorial further demostrates how to interface the DHT11 temperature and hum
 </details>
 
 
-
+<!-- GETTING STARTED -->
 ## 2- Getting Started
 
 ### 2.1 Hardware Requirements:
