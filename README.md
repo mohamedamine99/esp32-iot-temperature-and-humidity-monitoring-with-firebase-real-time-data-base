@@ -644,7 +644,7 @@ Now we should see the difference :
 ### 3D Conception:
 Now that our project works fine we can conceive an enclosure for our device .
 In this regard we have used solidworks 2018 to create a 3d conception for this enclosure.  
-**You can find the design [here](https://github.com/mohamedamine99/IOT-devices-enclosures-3d-conception-with-solidworks).**
+**You can find the design for our temperature & humidity sensor and other devices [here](https://github.com/mohamedamine99/IOT-devices-enclosures-3d-conception-with-solidworks).**
 
 
 
