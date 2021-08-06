@@ -646,6 +646,9 @@ Now that our project works fine we can conceive an enclosure for our device .
 In this regard we have used solidworks 2018 to create a 3d conception for this enclosure.  
 **You can find the design for our temperature & humidity sensor and other devices [here](https://github.com/mohamedamine99/IOT-devices-enclosures-3d-conception-with-solidworks).**
 
+![image](https://user-images.githubusercontent.com/86969450/128525113-78a6386a-c3d4-4d29-b1a7-9e042ac1ab91.png)
+
+
 
 
 ### Conclusion and perspective:
