@@ -25,6 +25,7 @@
     <li><a href="#software-implementation">Software implementation</a></li>
     <li><a href="#executing-the-program">Executing the program</a></li>
     <li><a href="#making-an-upgrade">Making an upgrade</a></li>
+    <li><a href="#3d-conception">3D Conception</a></li>
     <li><a href="#conclusion-and-perspective">Conclusion and perspective</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -640,7 +641,13 @@ Now we should see the difference :
   
 ![image](https://user-images.githubusercontent.com/86969450/128424299-cbd6ce50-1b9a-441c-a0ce-0071405dfc97.png)
 
- 
+### 3D Conception:
+Now that our project works fine we can conceive an enclosure for our device .
+In this regard we have used solidworks 2018 to create a 3d conception for this enclosure.  
+**You can find the design [here](https://github.com/mohamedamine99/IOT-devices-enclosures-3d-conception-with-solidworks).**
+
+
+
 ### Conclusion and perspective:
 
 To sum up, in this tutorial we learned how to interface sensors and actuators with our ESP32 DEV kit V-1 , we learned how to avoid incorrect readings from the DHT11 sensor,how to properly control RGB LEDs colors and how to upload sensor values and update them continuously on our Firebase RealTime Database (RTBD) using anonymous sign up at first and then using a more advanced authentification method with user mail and password.
