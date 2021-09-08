@@ -653,7 +653,10 @@ In this regard we have used solidworks 2018 to create a 3d conception for this e
 
 ### Conclusion and perspective:
 
-To sum up, in this tutorial we learned how to interface sensors and actuators with our ESP32 DEV kit V-1 , we learned how to avoid incorrect readings from the DHT11 sensor,how to properly control RGB LEDs colors and how to upload sensor values and update them continuously on our Firebase RealTime Database (RTBD) using anonymous sign up at first and then using a more advanced authentification method with user mail and password.
+To sum up, in this tutorial we learned how to interface sensors and actuators with our ESP32 DEV kit V-1 , we learned how to avoid incorrect readings from the DHT11 sensor,how to properly control RGB LEDs colors and how to upload sensor values and update them continuously on our Firebase RealTime Database (RTBD) using anonymous sign up at first and then using a more advanced authentification method with user mail and password.  
+**However**, improvements can be made. In fact, as we can a see there is a bit of lag or delay between the data dispalyed our arduino IDE serial monitor and the data displayed on our firebase realtime database.  
+Luckily for us there is a fairly easy solution for that using **multitasking** since the esp32 board allows **multithreading** thanks to its **dual Core architecture**.
+(Please refer to the [multithreading readme](https://github.com/mohamedamine99/esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base/blob/main/src/Multi-threading%20Read%20me.md) , [multithreading code](https://github.com/mohamedamine99/esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base/blob/main/src/dht11_fireBase_multi_thread_Email_Password_auth_git.ino) in the [src](https://github.com/mohamedamine99/esp32-iot-temperature-and-humidity-monitoring-with-firebase-real-time-data-base/tree/main/src) file for more informations)
 
 ### Contact:
 * Mail : mohamedamine.benabdeljelil@insat.u-carthage.tn -- mohamedaminebenjalil@yahoo.fr
