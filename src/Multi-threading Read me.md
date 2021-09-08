@@ -31,4 +31,44 @@ The ESP32 comes with 2 Xtensa 32-bit LX6 microprocessors, so it’s dual core:
 
 ##  Software implementation :
 
+The Arduino IDE supports FreeRTOS for the ESP32, which is a Real Time Operating system. This allows us to handle several **tasks** in parallel that run independently.
+
+###  Understanding tasks:
+
+* Tasks are snippets of code that carry out a certain action. Blinking an LED, sending a network request, measuring sensor readings, publishing sensor readings,etc...  
+* Tasks are used to assign certain pieces of code to a specific core.  
+* When creating a task you can chose in which core it will run, as well as its priority.
+* Priority values start at 0, in which 0 is the lowest priority.
+* The tasks with the highest priority will be executed first by the processor.
+
+###  Creating tasks (example):
+1. Create a task handle. for example Task1:
+
+  ```cpp 
+  TaskHandle_t Task1;
+  ```
+
+2. In the `setup()` create a task assigned to a specific core using the `xTaskCreatePinnedToCore` function.
+
+  ```cpp 
+xTaskCreatePinnedToCore(
+      Task1code, /* Function to implement the task */
+      "Task1", /* Name of the task */
+      10000,  /* Stack size in words */
+      NULL,  /* Task input parameter */
+      0,  /* Priority of the task */
+      &Task1,  /* Task handle. */
+      0); /* Core where the task should run */
+```
+3. After creating the task, we should write a function that contains the task's code. we must create the Task1code() function. This is how the task function's structure should look like:
+
+  ```cpp 
+  Void Task1code( void * vParameter) {
+  for(;;) {
+   // Code for task 1 
+    
+  }
+}
+  
+  ```
 
