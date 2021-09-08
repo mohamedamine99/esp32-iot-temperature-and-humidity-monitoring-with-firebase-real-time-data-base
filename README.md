@@ -172,7 +172,7 @@ note that this example will create a new anonymous user with  different UID (use
 
  First things first , we should begin by including all the libraries we're intending to use :
  
-   ```
+   ```cpp
 #include <dhtnew.h> // humidity and temperature sensor library
 
 /* the below if defined and endif bloc will detect the current esp board (32 or 8266) and include the adequate libraries 
@@ -196,7 +196,7 @@ if it detects esp32 the it will includeesp32 librairies else it will include esp
     
 **Note: It’s never a good idea to hardcode password information in your embedded application, for production cases you need to apply a device provision strategy that includes a secure device registration process.**
 
- ```
+ ```cpp
  /* 1. Define the WiFi credentials */
 #define WIFI_SSID "WIFI_ID"
 #define WIFI_PASSWORD "WIFI_PASSWORD"
@@ -204,7 +204,7 @@ if it detects esp32 the it will includeesp32 librairies else it will include esp
 Next, we'll create a constant to store our API key; as previously said, you can retrieve your Firebase project API key from the projects settings page.     
 `API_KEY` should be replaced with your API key. Replace `URL` with your own Firebase Realtime Database URL.
 
- ```
+ ```cpp
 #define API_KEY "API_KEY"
 
 /* 3. If work with RTDB, define the RTDB URL */
@@ -213,14 +213,14 @@ Next, we'll create a constant to store our API key; as previously said, you can 
  ```
  We need to define a unique device ID which can used to differentiate data coming from multiple sensors.
  the same should be applied for the Locations
-  ```
+  ```cpp
 #define DEVICE_ID "dev-1"
 
 #define LOCATION "Living Room"
  ```
 Now we define our 2 rgb LEDs pins
     
- ```
+ ```cpp
  // Led 1 Pins
 #define Led_1_Red 25
 #define Led_1_Green 26
@@ -237,7 +237,7 @@ Each RGB LED has 4 pins : one for gnd and 3 pins as input to determine the outpu
    
  Next we initialise 3 objects courtesy of the `FirebaseESP32` library which will be critical to linking our application to Firebase.
 
- ```
+ ```cpp
  /* 4. Define the Firebase Data object */
 FirebaseData fbdo;
 
@@ -249,7 +249,7 @@ FirebaseConfig config;
  ``` 
 Following that, we define a few global variables that will be useful.
 
- ``` 
+ ``` cpp
 // Sensor data
 float humidity=0.0;
 float temperature=0.0;
@@ -272,26 +272,26 @@ String Warning = "NONE";
 int Sensor_Error_Code=0;
  ```
  We also need to create two Firebase Json objects that will hold our sensor data .
- ```
+ ```cpp
 // Json objects containing data
 FirebaseJson Tempreature_json;
 
 FirebaseJson Humidity_json;
  ```
  We also need to declare string variables indicating the paths to our json objects containg the sensor data.
- ```
+ ```cpp
  // declaring string variables containing the data paths
 String path="";//base path 
 String temp_path="";
 String hum_path="";
 ```
   Finally let's not forget to create a DHT11 sensor object and attach it to an analog pin (15 in our case).
- ```
+ ```cpp
 //creating sensor object attached to pin 15
 DHTNEW Sensor(15);
 ```
 Now let's take a look at our setup function :
-```
+```cpp
 void setup()
 { 
   //Starting serial communication with our ESP32 board
@@ -314,7 +314,7 @@ void setup()
 As you can see First we need to initailize and establish serial communication with our ESP32 board using `Serial.begin(115200)`.  
 note that we have used multiple functions In order to initialize our hardware.    
 the first function is `Led_init()` which initializes our RGB LEDs as outputs and attaches them to their respective pins.
-```
+```cpp
 void Led_Init()
 {
   
@@ -335,7 +335,7 @@ After that check every 300 ms to see if the connection has been successfully est
 `WiFi.localIP()`.  
 For more detailed informations about WiFi API you might want to check out the [Arduino WiFi API documentation](https://www.arduino.cc/en/Reference/WiFi).
 
-```
+```cpp
 void WiFi_init()
 {
 
@@ -370,7 +370,7 @@ Now we need to determine the **paths** to where to upload our data :
 
 **For more details you can check the Library link and documentation [here](https://github.com/mobizt/Firebase-ESP32) you can find an implementation example of anonymous authentification [here](https://github.com/mobizt/Firebase-ESP32/blob/master/examples/Authentications/SignInAsGuest/AnonymousSignin/AnonymousSignin.ino)**  
 
-```
+```cpp
 void FireBase_init(){
 Serial.printf("Firebase Client v%s\n\n", FIREBASE_CLIENT_VERSION);
 
@@ -407,7 +407,7 @@ Serial.printf("Firebase Client v%s\n\n", FIREBASE_CLIENT_VERSION);
 }
 ```
 The next function is `Json_init()` which initializes our json objects keys and values and assigns them to thier respectives paths
-```
+```cpp
 void Json_init()
 {
 Tempreature_json.add("Device ID",DEVICE_ID);
@@ -426,7 +426,7 @@ and finally we initialize our sensor. Sometimes the DHT11 sensors fails to read 
   
 **For more detailed informations you can check the sensor library link provided [here](https://github.com/RobTillaart/DHTNEW) you can find an implementation example [here](https://github.com/RobTillaart/DHTNew/blob/master/examples/dhtnew_suppressError/dhtnew_suppressError.ino)**
 
-```
+```cpp
 void Sensor_init()
 {
     Sensor.setSuppressError(true);// avoiding spikes and error values for more detailed info check this  
@@ -439,7 +439,7 @@ Now that we have completed the setup functions, lets get to the loop function.
 As we can see we we use the `if` statement to check whether we are well connected and signed up and to keep our functions running at a constant rate, in our case very 2 seconds.  
 We used `Update_Sensor_readings()` function in order to read sensor values and  `Update_data()` in order to upload them to our Firebase realtime database.
 
-```
+```cpp
 void loop()
 {
     if (millis() - dataMillis > 2000 && signupOK && Firebase.ready())
@@ -454,7 +454,7 @@ void loop()
 Now let's dive into our `Update_Sensor_readings()` function.  
 this functions updates error_code and sensor values that will later be uploaded to our database.
 
-```
+```cpp
 void Update_Sensor_readings()
 {
  // if (millis() - Sensor.lastRead() > 2000){
@@ -474,7 +474,7 @@ Serial.println("/*****/");
 }
 ```
 Now the `Led_Signal()` function:
-```
+```cpp
 void Led_Signal(String Led,byte r,byte g,byte b)
 {
   if (Led=="Led 1")
@@ -508,7 +508,7 @@ the system has 2 rgb leds : one for temperature and one for humidity
 
 We then set the sensor state value using the `switch`, `case` statement.
 Finally we upload our data to the database using `Firebase.updateNode()` .
-```
+```cpp
 void Update_data()
 {
 
