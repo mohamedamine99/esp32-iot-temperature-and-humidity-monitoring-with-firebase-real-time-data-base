@@ -37,8 +37,6 @@
    
 ## About the project
 
-![image](https://user-images.githubusercontent.com/86969450/128428449-4470b309-326e-4470-a66a-8fdc706914c3.png)
-
 
 ESP32 is a powerful hardware platform for IoT applications and is widely used for prototyping and development of IoT applications.
 
